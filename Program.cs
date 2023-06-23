@@ -7,17 +7,17 @@ namespace Design_Patterns_with_C_
         static void Main(string[] args)
         {
             Console.WriteLine("***Singleton Pattern Demonstration.***\n");
-            //Console.WriteLine($"The value of MyInt is: {Singleton.MyInt}");
+            Console.WriteLine($"The value of MyInt is: {SingletonStaticConstructor.MyInt}");
 
             //Singleton s = new Singleton(); //error
 
             Console.WriteLine("Trying to get a Singleton instance, called firstInstance.");
 
-            Singleton firstInstance = Singleton.GetInstance;
+            SingletonStaticConstructor firstInstance = SingletonStaticConstructor.GetInstance;
 
             Console.WriteLine("Trying to get another Singleton instance, called secondInstance.");
 
-            Singleton secondInstance = Singleton.GetInstance;
+            SingletonStaticConstructor secondInstance = SingletonStaticConstructor.GetInstance;
 
             if (firstInstance.Equals(secondInstance))
             {
@@ -28,6 +28,8 @@ namespace Design_Patterns_with_C_
                 Console.WriteLine("Different instance exist.");
             }
             Console.Read();
+
+            //Console.WriteLine(Singleton.MyInt);
         }
     }
 }
