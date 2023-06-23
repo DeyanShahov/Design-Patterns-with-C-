@@ -15,7 +15,7 @@ namespace Design_Patterns_with_C_
         private static void Call2PrototypePattern()
         {
             Console.WriteLine("***Prototype Pattern Demo2.***\n");
-            CarFactory carFactory = new CarFactory();
+            CarFactory2 carFactory = new CarFactory2();
 
             // Get a Nano
             BasicCar basicCar = carFactory.GetNano();
