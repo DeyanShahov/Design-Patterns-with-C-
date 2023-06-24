@@ -28,3 +28,7 @@ Abstract class or an interface:
 	• When the functionalities are widespread among dissimilar/unrelated objects, use an interface. Abstract classes should be used for 
 	closely related objects which share common functionalities.
 	• Abstract classes allow you to partially implement your class, whereas interfaces contain no implementation for any members 
+
+When to use:
+	If you need to make a complex object that involves various steps of the construction process, and at the same time, the products 
+	need to be immutable, the Builder pattern is a good choice.

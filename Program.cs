@@ -1,5 +1,9 @@
 ﻿using Design_Patterns_with_C_.Creational_Patterns;
 using Design_Patterns_with_C_.Creational_Patterns.Builder;
+using Design_Patterns_with_C_.Creational_Patterns.Builder2;
+using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
+using IBuilder = Design_Patterns_with_C_.Creational_Patterns.Builder.IBuilder;
+using Product = Design_Patterns_with_C_.Creational_Patterns.Builder.Product;
 
 namespace Design_Patterns_with_C_
 {
@@ -10,8 +14,32 @@ namespace Design_Patterns_with_C_
             // CallSingletonPatterns();
             //CallPrototypePattern();
             //Call2PrototypePattern();
+            //CallBuilderPattern();
+            CallBuilderPattern2();
+        }
 
-            CallBuilderPattern();
+        private static void CallBuilderPattern2()
+        {
+            Console.WriteLine("***Builder2 Pattern alternative implementation.***");
+            Creational_Patterns.Builder2.Product customCar = new Car("Suzuki Swift").StartUpOperations()
+                .AddHeadLights(6)
+                .InsertWheels()//Will consider default value
+                .BuildBody("Plastic")
+                .EndOperations("Suzuki construction Completed.")
+                .ConstructCar();
+
+            customCar.Show();
+
+
+            Creational_Patterns.Builder2.Product customCar2 = new Car("Sedan")
+                .InsertWheels(7)
+                .AddHeadLights(6)
+                .StartUpOperations("Sedan creation in progres")
+                .BuildBody()
+                .EndOperations() //will take default end message
+                .ConstructCar();
+
+            customCar2.Show();
         }
 
         private static void CallBuilderPattern()
@@ -19,7 +47,7 @@ namespace Design_Patterns_with_C_
             Console.WriteLine("***Builder Pattern Demo***");
             Director director = new Director();
 
-            IBuilder b1 = new Car("Ford");
+            IBuilder b1 = new Creational_Patterns.Builder.Car("Ford");
             IBuilder b2 = new Motorcycle("Honda");
 
             director.Construct(b1);
