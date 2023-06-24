@@ -1,8 +1,15 @@
-﻿using System;
-
-namespace Design_Patterns_with_C_.Creational_Patterns
+﻿namespace Design_Patterns_with_C_.Creational_Patterns
 {
-    // DEFINITION : Ensure a class has only one instance, and provide a global point of access to it.
+    //Definition: Ensure a class has only one instance, and provide a global point of access to it.
+
+    //Concept: It restricts the use of new and ensures that you do not have more than one instance of the class. In short, this pattern says that a class
+    //  should have only one instance. You can create an instance if it is not available; otherwise, you should use an existing instance to serve your needs.
+
+    //When should to use:
+    //  • When working with a centralized system(for example a database)
+    //  • When maintaining a common log file
+    //  • When maintaining a thread pool in a multithreaded environment
+    //  • When implementing a caching mechanism or device drivers, and so forth
     public sealed class SingletonStaticConstructor
     {
         private static readonly SingletonStaticConstructor instance;

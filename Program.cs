@@ -1,5 +1,5 @@
 ﻿using Design_Patterns_with_C_.Creational_Patterns;
-using System.Diagnostics;
+using Design_Patterns_with_C_.Creational_Patterns.Builder;
 
 namespace Design_Patterns_with_C_
 {
@@ -9,7 +9,28 @@ namespace Design_Patterns_with_C_
         {
             // CallSingletonPatterns();
             //CallPrototypePattern();
-            Call2PrototypePattern();
+            //Call2PrototypePattern();
+
+            CallBuilderPattern();
+        }
+
+        private static void CallBuilderPattern()
+        {
+            Console.WriteLine("***Builder Pattern Demo***");
+            Director director = new Director();
+
+            IBuilder b1 = new Car("Ford");
+            IBuilder b2 = new Motorcycle("Honda");
+
+            director.Construct(b1);
+            Product p1 = b1.GetVehicle();
+            p1.Show();
+
+            director.Construct(b2);
+            Product p2 = b2.GetVehicle();
+            p2.Show();
+
+            Console.ReadLine();
         }
 
         private static void Call2PrototypePattern()

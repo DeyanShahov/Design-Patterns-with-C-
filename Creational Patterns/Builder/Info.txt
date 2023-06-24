@@ -1,0 +1,30 @@
+﻿Definition:
+	Separate the construction of a complex object from its representation so that the same construction processes can create different representations.
+
+Concept:
+	The Builder pattern is useful for creating complex objects that have multiple parts.
+
+Advantages:
+	• You direct the builder to build the objects step-by-step, and you promote encapsulation by hiding the details of the complex 
+	construction process. The director can retrieve the final product from the builder when the whole construction process is over.
+	In general, at a high level, you seem to have only one method that makes the complete product, but other internal methods are
+	involved in the creation process. So, you have finer control over the construction process.
+	• Using this pattern, the same construction process can produce different products.
+	• You can also vary the internal representation of products.
+
+Drawbacks:
+	• It is not suitable if you want to deal with mutable objects (which can be modified later).
+	• You may need to duplicate some portion of the code. These duplications may have a significant impact in some contexts.
+	• To create different types of products, you need to create different types of concrete builders.
+
+Abstract class or an interface:
+	If you want centralized or default behaviors, an abstract class is a better choice. In those cases, you can provide some default 
+	implementation. On the other hand, the interface implementation starts from scratch and indicates rules/contracts such as 
+	what is to be done, but it does not enforce the “how” part upon you. Also, interfaces are preferred when you are trying to 
+	implement the concept of multiple inheritance.	
+
+	• When you have multiple versions of components, use an abstract class. Once you update the base class, all derived classes are updated 
+	automatically. The interface, on the other hand, should not be changed once created.
+	• When the functionalities are widespread among dissimilar/unrelated objects, use an interface. Abstract classes should be used for 
+	closely related objects which share common functionalities.
+	• Abstract classes allow you to partially implement your class, whereas interfaces contain no implementation for any members 
