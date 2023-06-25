@@ -1,6 +1,7 @@
 ﻿using Design_Patterns_with_C_.Creational_Patterns;
 using Design_Patterns_with_C_.Creational_Patterns.Builder;
 using Design_Patterns_with_C_.Creational_Patterns.Builder2;
+using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
 using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
 using IBuilder = Design_Patterns_with_C_.Creational_Patterns.Builder.IBuilder;
 using Product = Design_Patterns_with_C_.Creational_Patterns.Builder.Product;
@@ -15,7 +16,15 @@ namespace Design_Patterns_with_C_
             //CallPrototypePattern();
             //Call2PrototypePattern();
             //CallBuilderPattern();
-            CallBuilderPattern2();
+            //CallBuilderPattern2();
+
+            Console.WriteLine("*** Simple Factory Pattern Demo ***\n");
+            IAnimal preferredType = null;
+            SimpleFactory simpleFactory = new SimpleFactory();
+            preferredType = simpleFactory.CreateAnimal();
+            preferredType.AboutMe();
+
+            Console.ReadLine();
         }
 
         private static void CallBuilderPattern2()

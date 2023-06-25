@@ -1,0 +1,13 @@
+﻿Definition:
+	The Simple Factory pattern creates an object without exposing the instantiation logic to the client.
+
+Concept:
+	In OOP, a Factory is such an object that can create other objects. 
+
+	• The Simple Factory pattern is not treated as a standard design pattern, but the approach is common to any application you write wher
+	you want to separate the code that varies a lot from the part of code that does not vary. It is assumed that you follow this approach 
+	in all the applications you write.
+
+	• The Simple Factory pattern is considered the simplest form of the Factory Method pattern (and Abstract Factory pattern). So, you can 
+	assume that any application that follows either the Factory Method pattern or the Abstract Factory pattern also follows the concept of the 
+	Simple Factory pattern’s design goals.
