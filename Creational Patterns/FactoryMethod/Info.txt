@@ -1,0 +1,15 @@
+﻿Definition:
+	Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+Conscept:
+	Start with an abstract creator class that defines the basic structure of an application, and the subclasses (that derive from this abstract class) take the 
+	responsibility of doing the actual instantiation process.
+
+Advantages:
+	• You are separating the code that varies from the code that does not vary (in other words, the advantages of using the Simple Factory pattern are 
+	 still present), which helps you easily maintain the code.
+	• The code is not tightly coupled, so you can add new classes such as Lion, Bear, and so on, at any time in the system without modifying 
+	the existing architecture. In other words, I followed the “closed for modification but open for extension” principle.
+
+Challenges:
+	If you need to deal with many different types of objects, then the overall performance of the system can be affected.
