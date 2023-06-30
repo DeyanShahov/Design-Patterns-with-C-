@@ -4,6 +4,7 @@ using Design_Patterns_with_C_.Creational_Patterns.Builder2;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryAbstract;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryMethod;
 using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
+using Design_Patterns_with_C_.Structural_Patterns.Proxy_Pattern;
 using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
 using IBuilder = Design_Patterns_with_C_.Creational_Patterns.Builder.IBuilder;
 using Product = Design_Patterns_with_C_.Creational_Patterns.Builder.Product;
@@ -21,7 +22,16 @@ namespace Design_Patterns_with_C_
             //CallBuilderPattern2();
             //CallFactorySimple();
             //CallFactoryMethod();
+            //CallFactoryAbstract();
 
+            Console.WriteLine("***Proxy Pattern Demo***\n");
+            Subject proxy = new Proxy();
+            proxy.DoSomeWork();
+            Console.ReadLine();
+        }
+
+        private static void CallFactoryAbstract()
+        {
             Console.WriteLine("***Abstract Factory Pattern Demo***\n");
             IAnimalFactory animalFactory = FactoryProvider.GetAnimalFactory("wild");
             IDog dog = animalFactory.GetDog();
