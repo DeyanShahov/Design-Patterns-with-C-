@@ -29,3 +29,25 @@ Different types of proxies:
 	• Protection proxies: These proxies generally deal with different access rights.
 	• Smart reference: Performs additional housekeeping when a client accesses an object. A typical operation may include
 		counting the number of references to an object at a certain moment in time.
+
+	Sometimes a proxy implementation can have some similarities to a decorator, 
+but you should not forget the true intent of a proxy. Decorators focus on adding 
+responsibilities, whereas proxies focus on controlling access to an object. So, if you 
+remember their purpose, in most cases, you can distinguish proxies from decorators.
+
+Use cases:
+	• You are writing test cases for a scenario that is still in the 
+	development phase or very hard to reproduce. For example, when 
+	you want to evaluate behavior in an application that can be seen 
+	in a customer environment only, but you also recognize that when 
+	the application is running, the probability of getting the behavior is 
+	very low. In such a case, you can mimic the customer environment 
+	behavior in your proxy object and execute your test cases to evaluate 
+	the correctness of this behavior. You do not want your client to talk 
+	directly to the target object.
+	• You want to hide the complexity and enhance the security of the system.
+
+Cons associated with proxies:
+	• The overall response time can be an issue because you are not directly talking to the actual object.
+	• You need to maintain additional layers for the proxies.
+	• A proxy can hide the actual responses from objects, which may create confusion in some scenarios.

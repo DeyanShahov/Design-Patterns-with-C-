@@ -5,6 +5,7 @@ using Design_Patterns_with_C_.Creational_Patterns.FactoryAbstract;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryMethod;
 using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
 using Design_Patterns_with_C_.Structural_Patterns.Proxy_Pattern;
+using Design_Patterns_with_C_.Structural_Patterns.Proxy2_Pattern;
 using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
 using IBuilder = Design_Patterns_with_C_.Creational_Patterns.Builder.IBuilder;
 using Product = Design_Patterns_with_C_.Creational_Patterns.Builder.Product;
@@ -15,6 +16,8 @@ namespace Design_Patterns_with_C_
     {
         static void Main(string[] args)
         {
+            #region Factory Patterns
+
             // CallSingletonPatterns();
             //CallPrototypePattern();
             //Call2PrototypePattern();
@@ -24,6 +27,33 @@ namespace Design_Patterns_with_C_
             //CallFactoryMethod();
             //CallFactoryAbstract();
 
+            #endregion
+
+            #region Proxy Patterns
+
+            //CallProxyPattern();
+
+            Console.WriteLine("***Proxy Pattern2 Demo***\n");
+            // Authorized user - Admin
+            Subject proxy = new Proxy2("Admin");
+            proxy.DoSomeWork();
+            // Authorized user - Sam
+            proxy = new Proxy2("Sam");
+            proxy.DoSomeWork();
+            // Unauthorized user - Robiin
+            proxy = new Proxy2("Robin");
+            proxy.DoSomeWork();
+
+            Console.ReadLine();
+
+
+            #endregion
+
+
+        }
+
+        private static void CallProxyPattern()
+        {
             Console.WriteLine("***Proxy Pattern Demo***\n");
             Subject proxy = new Proxy();
             proxy.DoSomeWork();
