@@ -1,0 +1,31 @@
+﻿Concept:
+	An abstract factory is often referred to as a factory of factories. This pattern provides a 
+	way to encapsulate a group of individual factories that have a common theme. In this 
+	process, you do not instantiate a class directly; instead, you instantiate a concrete factory 
+	and, after that, create products using the factory.
+
+Challenges:
+	Any change in the abstract factory forces you to propagate the modification to the 
+	concrete factories. Standard design philosophy suggests you to program to an interface, 
+	but not to an implementation. This is one of the key principles that developers should 
+	always keep in mind. In most scenarios, developers do not want to change their abstract 
+	factories.
+
+	In short, with the Simple Factory pattern, you can separate the code that varies from 
+the rest of the code (basically, you decouple the client code). This approach helps you to 
+manage the code more easily. Another key advantage of this approach is that the client is 
+unaware of how the objects are created. So, it promotes both security and abstraction.
+	However, this approach can violate the open-closed principle. You can overcome 
+this drawback using the Factory Method pattern, which allows subclasses to decide how 
+the instantiation process is completed. Put simply, you delegate the object creation to 
+the subclasses that implement the factory method to create objects.
+	The abstract factory is basically a factory of factories. It creates a family of related 
+objects, but it does not depend on the concrete classes. In this pattern, you encapsulate 
+a group of individual factories that have a common theme. In this process, you do not 
+instantiate a class directly; instead, you get a concrete factory (I used a provider for that) 
+and, after that, create products using the factory.
+	Lastly, I tried to keep the examples simple. A factory method promotes inheritance, 
+and its subclasses need to implement the factory method to create objects. The Abstract 
+Factory pattern can promote object composition by creating related objects using the 
+methods that are exposed in a factory interface. In the end, all the factories promote 
+loose coupling by reducing the dependencies on concrete classes.

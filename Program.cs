@@ -1,6 +1,7 @@
 ﻿using Design_Patterns_with_C_.Creational_Patterns;
 using Design_Patterns_with_C_.Creational_Patterns.Builder;
 using Design_Patterns_with_C_.Creational_Patterns.Builder2;
+using Design_Patterns_with_C_.Creational_Patterns.FactoryAbstract;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryMethod;
 using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
 using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
@@ -19,6 +20,28 @@ namespace Design_Patterns_with_C_
             //CallBuilderPattern();
             //CallBuilderPattern2();
             //CallFactorySimple();
+            //CallFactoryMethod();
+
+            Console.WriteLine("***Abstract Factory Pattern Demo***\n");
+            IAnimalFactory animalFactory = FactoryProvider.GetAnimalFactory("wild");
+            IDog dog = animalFactory.GetDog();
+            ITiger tiger = animalFactory.GetTiger();
+            dog.AboutMe();
+            tiger.AboutMe();
+
+            Console.WriteLine("********************");
+
+            animalFactory = FactoryProvider.GetAnimalFactory("pet");
+            dog = animalFactory.GetDog();
+            tiger = animalFactory.GetTiger();
+            dog.AboutMe();
+            tiger.AboutMe();
+
+            Console.ReadLine();
+        }
+
+        private static void CallFactoryMethod()
+        {
             Console.WriteLine("***Factory Pattern Demo***");
             AnimalFactory tigerFactory = new TigerFactory();
             IAnimal tiger = tigerFactory.MakeAnimal();
