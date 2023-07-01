@@ -4,6 +4,7 @@ using Design_Patterns_with_C_.Creational_Patterns.Builder2;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryAbstract;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryMethod;
 using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
+using Design_Patterns_with_C_.Structural_Patterns.Decorator_Pattern;
 using Design_Patterns_with_C_.Structural_Patterns.Proxy_Pattern;
 using Design_Patterns_with_C_.Structural_Patterns.Proxy2_Pattern;
 using Car = Design_Patterns_with_C_.Creational_Patterns.Builder2.Car;
@@ -32,7 +33,65 @@ namespace Design_Patterns_with_C_
             #region Proxy Patterns
 
             //CallProxyPattern();
+            //CallProxy2Pattern();
 
+            Console.WriteLine("***Decorator pattern Demo***\n");
+
+            #region Scenario-1
+            Console.WriteLine("\n**Scenario-1: ");
+            Console.WriteLine("**Building home. Adding floor and then painting it.**");
+
+            AbstractHome home = new ConcreteHome();
+            Console.WriteLine("Current build breakups are as follows: ");
+            home.MakeHome();
+
+            //Applying a decorator
+            //Adding a floor
+            home = new FloorDecorator(home);
+            Console.WriteLine("\nFloor added. Current bill breakups are as follows: ");
+            home.MakeHome();
+
+            //Working on top of the previous decorator
+            //Painting the home
+            home = new PaintDecorator(home);
+            Console.WriteLine("\nPaint applied. Current bill breakups are as follows: ");
+            home.MakeHome();
+            #endregion
+
+            #region Scenario-2
+            Console.WriteLine("\n**Scenario-2:");
+            Console.WriteLine("**Building home,painting it and then adding two additional floors on top of it.**");
+            // Fresh start once again.
+            home = new ConcreteHome();
+            Console.WriteLine("\nGoing back to original home.Current bill breakups are as follows:");
+           
+            home.MakeHome();
+            // Applying paint on original home.
+            home = new PaintDecorator(home);
+            Console.WriteLine("\nPaint applied.Current bill breakups are as follows: ");
+           
+            home.MakeHome();
+            // Adding a floor on the painted home.
+            home = new FloorDecorator(home);
+            Console.WriteLine("\nFloor added.Current bill breakups are as follows: ");
+           
+            home.MakeHome();
+            // Adding another floor on the current home.
+            home = new FloorDecorator(home);
+            Console.WriteLine("\nFloor added.Current bill breakups are as follows: ");
+           
+            home.MakeHome();
+            #endregion
+
+            Console.ReadLine();
+
+            #endregion
+
+
+        }
+
+        private static void CallProxy2Pattern()
+        {
             Console.WriteLine("***Proxy Pattern2 Demo***\n");
             // Authorized user - Admin
             Subject proxy = new Proxy2("Admin");
@@ -45,11 +104,6 @@ namespace Design_Patterns_with_C_
             proxy.DoSomeWork();
 
             Console.ReadLine();
-
-
-            #endregion
-
-
         }
 
         private static void CallProxyPattern()

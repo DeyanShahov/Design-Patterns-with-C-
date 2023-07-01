@@ -1,0 +1,10 @@
+﻿Definition:
+	Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for 
+	extending functionality.
+
+Concept:
+		This pattern uses an alternative to subclassing (i.e. inheritance). If inheritance is not allowed is time to use composition
+	instead of inheritance. 
+		By following the SOLID principle, this pattern promotes the concept where your class is closed for modification but open for
+	extension. Using this pattern, you can add special functionality to a specific object without altering the underlyng class.
+		A decorator is just like a wrapper that surrounds the original object and adds additional functionality to it.
