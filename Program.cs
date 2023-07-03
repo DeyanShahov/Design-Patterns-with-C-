@@ -4,6 +4,7 @@ using Design_Patterns_with_C_.Creational_Patterns.Builder2;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryAbstract;
 using Design_Patterns_with_C_.Creational_Patterns.FactoryMethod;
 using Design_Patterns_with_C_.Creational_Patterns.FactorySimple;
+using Design_Patterns_with_C_.Structural_Patterns.Adapter_Pattern;
 using Design_Patterns_with_C_.Structural_Patterns.Decorator_Pattern;
 using Design_Patterns_with_C_.Structural_Patterns.Proxy_Pattern;
 using Design_Patterns_with_C_.Structural_Patterns.Proxy2_Pattern;
@@ -17,9 +18,9 @@ namespace Design_Patterns_with_C_
     {
         static void Main(string[] args)
         {
-            #region Factory Patterns
+            #region Creational Patterns
 
-            // CallSingletonPatterns();
+            //CallSingletonPatterns();
             //CallPrototypePattern();
             //Call2PrototypePattern();
             //CallBuilderPattern();
@@ -30,11 +31,45 @@ namespace Design_Patterns_with_C_
 
             #endregion
 
-            #region Proxy Patterns
+            #region Structural Patterns
 
             //CallProxyPattern();
             //CallProxy2Pattern();
+            //CallDecoratorPattern();
 
+            Console.WriteLine("***Adapter Pattern Demo***\n");
+            IRectangle rectangle = new Rectangle(20, 10);
+            Console.WriteLine("For initial verification purposes, printing the areas of both shapes.");
+           
+            Console.WriteLine("Rectangle area is:{0} Square unit",
+            rectangle.CalculateArea());
+            ITriangle triangle = new Triangle(20, 10);
+            Console.WriteLine("Triangle area is:{0} Square unit", triangle.
+            CalculateAreaOfTriangle());
+            Console.WriteLine("\nNow using the adapter.");
+            IRectangle adapter = new RectangleAdapter(triangle);
+            Console.Write("True fact : ");
+            adapter.AboutMe();
+            Console.WriteLine($" and my area is : {adapter.CalculateArea()} square unit.");
+            // Alternative way:
+            Console.WriteLine("\nUsing the adapter in a different way now.");
+            // Passing a Triangle instead of a Rectangle
+            Console.WriteLine($"Area of the triangle using the adapter is :{ GetDetails(adapter)} square unit.");
+            Console.ReadLine();
+
+            static double GetDetails(IRectangle rectangle)
+            {
+                rectangle.AboutMe();
+                return rectangle.CalculateArea();
+            }
+
+            #endregion
+
+
+        }
+
+        private static void CallDecoratorPattern()
+        {
             Console.WriteLine("***Decorator pattern Demo***\n");
 
             #region Scenario-1
@@ -64,30 +99,26 @@ namespace Design_Patterns_with_C_
             // Fresh start once again.
             home = new ConcreteHome();
             Console.WriteLine("\nGoing back to original home.Current bill breakups are as follows:");
-           
+
             home.MakeHome();
             // Applying paint on original home.
             home = new PaintDecorator(home);
             Console.WriteLine("\nPaint applied.Current bill breakups are as follows: ");
-           
+
             home.MakeHome();
             // Adding a floor on the painted home.
             home = new FloorDecorator(home);
             Console.WriteLine("\nFloor added.Current bill breakups are as follows: ");
-           
+
             home.MakeHome();
             // Adding another floor on the current home.
             home = new FloorDecorator(home);
             Console.WriteLine("\nFloor added.Current bill breakups are as follows: ");
-           
+
             home.MakeHome();
             #endregion
 
             Console.ReadLine();
-
-            #endregion
-
-
         }
 
         private static void CallProxy2Pattern()

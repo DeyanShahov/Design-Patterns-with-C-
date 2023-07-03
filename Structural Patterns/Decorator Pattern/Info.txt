@@ -8,3 +8,11 @@ Concept:
 		By following the SOLID principle, this pattern promotes the concept where your class is closed for modification but open for
 	extension. Using this pattern, you can add special functionality to a specific object without altering the underlyng class.
 		A decorator is just like a wrapper that surrounds the original object and adds additional functionality to it.
+
+Advantages:
+	• The existing structure is untouched, so you cannot introduce bugs there.
+	• New functionalities can be easily added to an existing object.
+	• You can not only add a behavior to an interface, but you can alter the behavior too.
+	• You do not need to predict/implement all the supported functionalities at once (for example, in the initial design phase). 
+	You can develop incrementally. For example, you can add decorator objects one by one to support your needs. You must acknowledge 
+	that if you make a complex class first and then want to extend the functionalities, it will be a tedious process.
